@@ -8,7 +8,7 @@ app.use(morgan('combined'));
 
 var content={
     title:'Article-one | Pushparaj',
-    heading:'ArticleOne',
+    heading:'Article One',
     date:'Sep 25, 2016',
     content:`   <p>
                     This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
