@@ -8,7 +8,7 @@ app.use(morgan('combined'));
 
 var content={
     title:'Article-one | Pushparaj',
-    heading:'Article One',
+    heading:'ArticleOne',
     date:'Sep 25, 2016',
     content:`   <p>
                     This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
@@ -60,7 +60,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one', function (req, res) {
-  res.send(createTemplate(articleOne));
+  res.send(createTemplate(ArticleOne));
 });
 
 app.get('/article-two', function (req, res) {
