@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 
 var content={
-    title:'Article-one | Pushparaj',
+    title:'Article one | Pushparaj',
     heading:'Article One',
     date:'Sep 25, 2016',
     content:`   <p>
