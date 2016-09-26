@@ -28,7 +28,7 @@ var articles={
                     This is the content for my SECOND article. 
                 </p>` 
  },
-'article-Three':{
+'article-three':{
      title:'Article three | Pushparaj',
     heading:'Article Three',
     date:'Sep 25 NIGHT, 2016',
