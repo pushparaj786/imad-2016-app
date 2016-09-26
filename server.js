@@ -33,7 +33,7 @@ var articles={
     heading:'Article Three',
     date:'Sep 25 NIGHT, 2016',
     content:`   <p>
-                    This is the content for my SECOND article. 
+                    This is the content for my THIRD article. 
                 </p>`
  }
 };
