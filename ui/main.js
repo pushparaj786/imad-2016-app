@@ -9,10 +9,10 @@ var request=new XMLHttpRequest();
 request.onreadystatechange = function() {
     if(request.readyState===XMLHttpRequest.DONE){
          //Take some action
-    if(request.Status===200){
+    if(request.status===200){
         var counter = request.responseText;
         var span = document.getElementById('counter');
-        span.innerHTML=counter.toString();
+        span.innerHTML = counter.toString();
     }
   }
 };
