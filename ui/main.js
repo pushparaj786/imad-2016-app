@@ -13,6 +13,6 @@ function moveRight(){
  }
 
 img.onclick=function () {
-var interval=setInterval(marRight,50);   
+var interval=setInterval(moveRight,50);   
     
 };
