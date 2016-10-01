@@ -1,18 +1,22 @@
-console.log('Loaded!');
+//counter code
+var button = document.getElementById('counter'); 
 
-//change the text of the main-text div
-var element=document.getElementById('main-text');
-element.innerHTML='NEW VALUE';
+button.onClick=function(){
+//create a request object
 
-//Move the image
-var img=document.getElementById('madi');
-var marginLeft=0;
-function moveRight(){
-  marginLeft=marginLeft+1;
-  img.style.marginLeft=marginLeft+'px';
- }
+var request= new XMLHttpRequest();
 
-img.onclick=function () {
-var interval=setInterval(moveRight,50);   
-    
+request.onreadystatechange=function(){
+    if(request.readyState===XMLHttpRequest.DONE){
+         //Take some action
+    if(request.Status===200){
+        var counter=request.responseText;
+        var span=document.getElementById('count');
+        span.innerHTML=counter.toString();
+    }
+  }
+};
+//Make the request
+request.open('GET','http://pushparaj786.imad.hasura-app.io/counter',true);
+request.send(null);
 };
