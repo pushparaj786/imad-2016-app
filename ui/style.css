@@ -1,6 +1,10 @@
 body {
     font-family: sans-serif;
     margin-top: 60px;
+    background-color:Cyan;
+    border-style:solid;
+    border-width:10px;
+    border-color:red green blue yellow;
 }
 
 .center {
