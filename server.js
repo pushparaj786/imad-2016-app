@@ -130,7 +130,7 @@ pool.query('SELECT * FROM "user" WHERE username=$1',[username],function(err,resu
 });
 
 app.get('/check-login',function(req,res){
-    if(req.seeeion && req.session.auth && req.session.auth.userId){
+    if(req.session && req.session.auth && req.session.auth.userId){
         res.send('you are logged in:' + req.session.auth.userId.tostring());
     }else{
         res.send('your are not logged in');
