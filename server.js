@@ -112,7 +112,7 @@ pool.query('SELECT * FROM "user" WHERE username=$1',[username],function(err,resu
              var hashedPassword = hash(password,salt); //creating a hash based on the password submitted and the original salt
              if (hashedPassword === dbString) {
                  //set the session
-                req.session.auth = {userid: result.rows[0],id}; 
+                req.session.auth = {userId: result.rows[0].id}; 
                  //set cookie with a session id
                  //internally, on the server side,it maps session id to an object
                  //{auth: {userid}}
