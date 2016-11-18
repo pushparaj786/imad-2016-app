@@ -4,6 +4,8 @@ var path=require('path');
 var Pool=require('pg').Pool;
 var crypto=require('crypto');
 var bodyParser=require('body-parser');
+var session=require('express-session');
+
 var config = {
     user: 'pushparaj786',
     database: 'pushparaj786',
@@ -15,6 +17,13 @@ var config = {
 var app=express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+app.use(session({
+    secret: 'someRandomSecretValue',
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 30}
+    
+}));
+
+
 function createTemplate(data){
     var title=data.title;
     var date=data.date;
@@ -102,7 +111,15 @@ pool.query('SELECT * FROM "user" WHERE username=$1',[username],function(err,resu
              var salt = dbString.split('$')[2];
              var hashedPassword = hash(password,salt); //creating a hash based on the password submitted and the original salt
              if (hashedPassword === dbString) {
+                 //set the session
+                req.session.auth = {userid: result.rows[0],id}; 
+                 //set cookie with a session id
+                 //internally, on the server side,it maps session id to an object
+                 //{auth: {userid}}
+                 
                  res.send('credentials correct!');
+                 
+                 
              }else{
                  res.send(403).send('username/password is invalid');
              }
@@ -110,6 +127,14 @@ pool.query('SELECT * FROM "user" WHERE username=$1',[username],function(err,resu
         } 
 }); 
  
+});
+
+app.get('/check-login',function(req,res){
+    if(req.seeeion && req.session.auth && req.session.auth.userId){
+        res.send('you are logged in:' + req.session.auth.userId.tostring());
+    }else{
+        res.send('your are not logged in');
+    }
 });
 
 
