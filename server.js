@@ -82,11 +82,11 @@ app.get('/hash/:input',function(req,res){
 
 app.post('/create-user',function(req,res){
 //username,password
-var username = req.body.username;
-var password = req.body.password;
-var salt = crypto.randomBytes(128).toString('hex');
-var dbString = hash(password,salt);
-pool.query('INSERT INTO "user"(username,password) VALUES($1,$2)',[username,dbString],function(err,result){
+    var username = req.body.username;
+    var password = req.body.password;
+    var salt = crypto.randomBytes(128).toString('hex');
+    var dbString = hash(password,salt);
+    pool.query('INSERT INTO "user"(username,password) VALUES($1,$2)',[username,dbString],function(err,result){
     if (err){
             res.status(500).send(err.toString());
         } else {
@@ -96,10 +96,10 @@ pool.query('INSERT INTO "user"(username,password) VALUES($1,$2)',[username,dbStr
     
 });
 app.post('/login',function(req,res){
-var username = req.body.username;
-var password = req.body.password;
+    var username = req.body.username;
+    var password = req.body.password;
 
-pool.query('SELECT * FROM "user" WHERE username=$1',[username],function(err,result){
+    pool.query('SELECT * FROM "user" WHERE username=$1',[username],function(err,result){
     if (err){
             res.status(500).send(err.toString());
         } else {
@@ -157,12 +157,12 @@ pool.query('SELECT * FROM test',function(err, result){
    });
 });
 
-var counter=0;
+    var counter=0;
 app.get('/counter', function (req, res) {
     counter=counter+1;
   res.send(counter.toString());
 });
-var names=[];
+    var names=[];
 app.get('/submit-name/',function(req,res){
     //Get the name from the request
     var name = req.query.name;
