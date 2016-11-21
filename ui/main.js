@@ -9,8 +9,8 @@ var loginHtml='
     document.getElementById('login_area').innerHTML = loginHtml;
 
 //Submit username/password to login
-var submit = document.getElementById ('submit_btn');
-submit.onclick = function() {
+var submit = document.getElementById ('login_btn');
+    submit.onclick = function() {
             //create a request object 
     var request = new XMLHttpRequest();
             //Capture the response and store it in a variable
@@ -18,13 +18,15 @@ submit.onclick = function() {
     if(request.readyState===XMLHttpRequest.DONE){
          //Take some action
      if(request.status === 200){
-        alert('Logged in successfully!');
+        submit.value = 'Success!';
     } else if (request.status === 403)  {
-        alert('Username/password is incorrect');
+        submit.value = 'Invalid credentials,Try again?';
     } else if(request.status === 500)  {
         alert('something went wrong on the server');
+        submit.value = 'Login';
     }
-}
+      loadLogin();
+    }
 };
 //Make the request
 var username = document.getElementById('username').value;
