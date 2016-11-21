@@ -1,4 +1,4 @@
-//eg: pushparaj786.imad.hasura-app.io/articles/article-one will result in aticlename
+//Eg: pushparaj786.imad.hasura-app.io/articles/article-one will result in aticle-one
 var currentArticleTitle = window.location.pathname.split('/')[2];
 function loadCommentForm(){
     var commentFormHtml = `
@@ -9,6 +9,7 @@ function loadCommentForm(){
     <br/>
     `;
 document.getElementById('comment_form').innerHTML = commentFormHtml;
+
 //Submit username/password to login
 var submit = document.getElementById('submit');
     submit.onclick = function() {
@@ -38,10 +39,11 @@ submit.value = 'Submitting....';
 };
 }
 
+
 function loadlogin(){
     //check if the user is already logged in
- var request = new XMLHttpRequest();
-  request.onreadystatechange = function() {
+var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
     if(request.readyState===XMLHttpRequest.DONE){
     if(request.status === 200){
         loadCommentForm(this.responseText);
@@ -52,17 +54,20 @@ request.open('GET','/check-login',true);
 request.send(null);
 }
 
-function escapeHTML(text){
+
+function escapeHTML(text)
+{
  var $text = document.createTextNode(text);
  var $div  = document.createElement('div');
  $div.appendChild($text);
  return $div.innerHTML;
 }
 
+
 function loadComments(){
   //check if the user is already logged in
- var request = new XMLHttpRequest();
-  request.onreadystatechange = function() {
+var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
     if(request.readyState===XMLHttpRequest.DONE){
         var comments = document.getElementById('comments');
     if(request.status === 200){
@@ -71,7 +76,7 @@ function loadComments(){
         for (var i=0; i<commentsData.length; i++){
             var time = new Date (commentsData[i].timestamp);
             content +=`<div class = "comment">
-            <p>$ {escapeHTML(commentsData[i].comment)}</p>
+            <p>${escapeHTML(commentsData[i].comment)}</p>
             <div class = "commenter">
             ${commentsData[i].username} - ${time.toLocaleTimeString()} on ${time.toLocaleDataString()}
             </div>
@@ -86,7 +91,7 @@ function loadComments(){
 request.open('GET','/get-comments/' + currentArticleTitle,true);
 request.send(null);
 } 
-//The first thing to do is to check if the user is loggen in
+//The first thing to do is to check if the user is logged in
 loadLogin();
 loadComments();
  
