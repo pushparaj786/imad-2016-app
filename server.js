@@ -190,7 +190,7 @@ pool.query('SELECT * FROM article WHERE title = $1',[req.params.articleName],fun
              if(err){
                  res.status(500).send(err.toString());
              }else{
-                 res.status(200).send('Comment inserted!')
+                 res.status(200).send('Comment inserted!');
              }
          });
      }
@@ -202,10 +202,7 @@ pool.query('SELECT * FROM article WHERE title = $1',[req.params.articleName],fun
 });  
 
 app.get('/articles/:articleName', function (req, res) {
-    //articleName===article-one
-    //articles[articleName]==={}content object for article one
-    
-    //SELECT FROM article WHERE title='\';DELETE WHERE a='\asdf'
+        //SELECT * FROM article WHERE title='\';DELETE WHERE a='\asdf' beware of sql injection
     
    pool.query("SELECT * FROM article WHERE title =$1",[req.params.articleName],function(err,result){
       if(err) {
@@ -221,18 +218,10 @@ app.get('/articles/:articleName', function (req, res) {
    }); 
  });
 
-app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+app.get('/ui/:fileName', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
 });
 
-app.get('/ui/main.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
-});
-
-
-app.get('/ui/madi.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
-});
 
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
