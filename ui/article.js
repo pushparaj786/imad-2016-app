@@ -7,8 +7,7 @@ function loadCommentForm(){
     <br/>
     <input type = "submit" id="submit" value = "Submit"/>
     <br/>
-    `}
-    
+    `;
 document.getElementById('comment_form').innerHTML = commentFormHtml;
 //Submit username/password to login
 var submit = document.getElementById('submit');
@@ -29,5 +28,26 @@ var submit = document.getElementById('submit');
       submit.value='Submit';
     }
 };
-};
 
+//Make the request
+var comment = document.getElementById('comment_text').value;
+request.open('POST','/submit-comment/' + currentArticleTitle,true);
+request.setRequestHeader('content-Type','application/json');
+request.send(JSON.stringify({comment: comment}));
+submit.value = 'Submitting....';
+};
+}
+
+function loadlogin(){
+    //check if the user is already logged in
+ var request = new XMLHttpRequest();
+  request.onreadystatechange = function() {
+    if(request.readyState===XMLHttpRequest.DONE){
+    if(request.status === 200){
+        loadCommentForm(this.responseText);
+    }    
+  } 
+};
+request.open('GET','/check-login',true);
+request.send(null);
+}
