@@ -8,3 +8,4 @@ function loadCommentForm(){
     <input type = "submit" id="submit" value = "Submit"/>
     <br/>
     `}
+document.getElementById('comment_form').innerHTML = commentFormHtml;
