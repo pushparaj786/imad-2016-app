@@ -41,7 +41,7 @@ function createTemplate(data){
         <body>
         <div class="container">
             <div>
-                <a href="/">home</a>
+                <a href="/">Home</a>
             </div>
             <hr/>
             <h3>
@@ -53,7 +53,14 @@ function createTemplate(data){
             <div>
                 ${content}
             </div>
-         </div>
+            <hr/>
+            <h4>Comments</h4>
+            <div id="comment_form">
+            </div>
+            <div id="comments">
+            <center>Loading comments....</center>
+            </div>
+            <script type = "text/javascript" src="/ui/article.js"></script>
         </body>
 </html>
 `;
