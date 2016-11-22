@@ -68,7 +68,8 @@ request.open('POST','/create-user', true);
 request.setRequestHeader('Content-Type','application/json');
 request.send(JSON.stringify({username: username, password: password}));
 register.value = 'Registering....';
-};
+  };
+}
 
 function loadLoggedInUser(username){
  var loginArea = document.getElementById('login_area');
@@ -125,7 +126,7 @@ function loadArticles(){
   loadLogin();
   //Now this is something that we could have directly done on the server side using templating too!
   loadArticles();
-}
+
 
 
 
