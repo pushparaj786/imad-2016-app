@@ -1,5 +1,5 @@
-var loginHtml=
-    `<h3>Login/Register to unlock awesome features</h3>
+var loginHtml=` 
+    <h3>Login/Register to unlock awesome features</h3>
     <input type = "text" id ="username" placeholder ="username"/>
     <input type = "password" id ="password"/>
     <br/><br/>
