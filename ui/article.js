@@ -1,4 +1,4 @@
-//Eg: pushparaj786.imad.hasura-app.io/articles/article-one will result in aticle-one
+
 var currentArticleTitle = window.location.pathname.split('/')[2];
 function loadCommentForm(){
     var commentFormHtml = `
@@ -22,7 +22,7 @@ var submit = document.getElementById('submit');
      if(request.status === 200){
          //clear the form and reload all the comments
         document.getElementById('comment_text').value ='';
-        loadcomments();
+        loadComments();
     } else  {
         alert('Error! Could not submit comment');
     }
@@ -33,7 +33,7 @@ var submit = document.getElementById('submit');
 //Make the request
 var comment = document.getElementById('comment_text').value;
 request.open('POST','/submit-comment/' + currentArticleTitle,true);
-request.setRequestHeader('content-Type','application/json');
+request.setRequestHeader('Content-Type','application/json');
 request.send(JSON.stringify({comment: comment}));
 submit.value = 'Submitting....';
 };
@@ -55,7 +55,7 @@ request.send(null);
 }
 
 
-function escapeHTML(text)
+function escapeHTML (text)
 {
  var $text = document.createTextNode(text);
  var $div  = document.createElement('div');
@@ -78,7 +78,7 @@ var request = new XMLHttpRequest();
             content +=`<div class = "comment">
             <p>${escapeHTML(commentsData[i].comment)}</p>
             <div class = "commenter">
-            ${commentsData[i].username} - ${time.toLocaleTimeString()} on ${time.toLocaleDataString()}
+            ${commentsData[i].username} - ${time.toLocaleTimeString()} on ${time.toLocaleDateString()}
             </div>
             </div>`;
         }
