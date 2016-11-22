@@ -2,7 +2,7 @@ var loginHtml=
     `<h3>Login/Register to unlock awesome features</h3>
     <input type = "text" id ="username" placeholder ="username"/>
     <input type = "password" id ="password"/>
-    <hr/><hr/>
+    <br/><br/>
     <input type = "submit" id ="login_btn" value ="Login"/>
     <input type = "submit" id ="register_btn" value ="Register"/>
     `;
@@ -38,7 +38,7 @@ console.log('password');
 request.open('POST','/login', true);
 request.setRequestHeader('Content-Type','application/json');
 request.send(JSON.stringify({username: username, password: password}));
-submit.value = 'Logged in....';
+submit.value = 'Logging in....';
 };
 
 var register = document.getElementById ('register_btn');
@@ -61,8 +61,8 @@ var register = document.getElementById ('register_btn');
 //Make the request
 var username = document.getElementById('username').value;
 var password = document.getElementById('password').value;
-console.log('username');
-console.log('password');
+console.log(username);
+console.log(password);
 request.open('POST','/create-user', true);
 request.setRequestHeader('Content-Type','application/json');
 request.send(JSON.stringify({username: username, password: password}));
@@ -72,7 +72,7 @@ register.value = 'Registering....';
 function loadLoggedInUser(username){
  var loginArea = document.getElementById('login_area');
     loginArea.innerHTML=`
-    <h3>Hi<i>${username}</i></h3>
+    <h3> Hi <i>${username}</i></h3>
     <a href = "/logout">Logout</a>
     `;
 }
@@ -106,7 +106,8 @@ function loadArticles(){
             var content = '<ul>';
             var articleData = JSON.parse(this.responseText);
             for (var i=0; i<articleData.length; i++){
-                content += `<li> <a href = "/articles/${articleData[i].title}">${articleData[i].heading}</a>
+                content += `<li> 
+                <a href = "/articles/${articleData[i].title}">${articleData[i].heading}</a>
                 (${articleData[i].date.split('T')[0]}),</li>`;
             }
             content += "</ul>";
