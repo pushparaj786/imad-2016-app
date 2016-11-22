@@ -170,7 +170,7 @@ pool.query('SELECT * FROM article ORDER BY date DESC',function(err, result){
 app.get('/get-comments/:articleName',function(req,res){
     //Make a select reuest
     //Return a response with results
-pool.query('SELECT comment.*,"user".username FROM article,comment,"user" WHERE article.title = $1 AND article.id = comment.article_id AND cmment.user_id = "user".id ORDER BY comment.timestamp DESC',
+pool.query('SELECT comment.*,"user".username FROM article,comment,"user" WHERE article.title = $1 AND article.id = comment.article_id AND comment.user_id = "user".id ORDER BY comment.timestamp DESC',
 [req.params.articleName], function(err,result){
      if (err){
             res.status(500).send(err.toString());
