@@ -25,6 +25,7 @@ body {
 .container {
     text-align:justify;
     line-height:1.8;
+    text-indent:50px;
     max-width: 800px;
     margin: 0 auto;
     color: green;
