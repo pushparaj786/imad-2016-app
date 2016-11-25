@@ -23,9 +23,6 @@ body {
     height: 200px;
 }
 .container {
-    border:1px solid black;
-    outline-style:double;
-    outline-color:red;
     text-align:justify;
     line-height:1.8;
     text-indent:50px;
