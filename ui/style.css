@@ -34,6 +34,7 @@ body {
     padding-right: 20px;
 }
 .comment{
+    color:blue;
     margin-left: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
