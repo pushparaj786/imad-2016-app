@@ -23,7 +23,7 @@ body {
     height: 200px;
 }
 .container {
-    text-align:center;
+    text-align:justify;
     max-width: 800px;
     margin: 0 auto;
     color: green;
