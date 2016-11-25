@@ -24,6 +24,7 @@ body {
 }
 .container {
     text-align:justify;
+    line-height:1.8;
     max-width: 800px;
     margin: 0 auto;
     color: green;
