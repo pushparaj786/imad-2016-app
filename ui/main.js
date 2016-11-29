@@ -55,7 +55,7 @@ var register = document.getElementById ('register_btn');
          if (username.trim().length<4 && password.trim().length<4 && username!== /^[0-9a-zA-Z]+$/){
              alert('Please enter minimum 4 alphanumeric text for username and password minimum is 4');
              register.value = 'Register';
-         }
+         }else{
          if(request.status === 200){
              alert('User created successfully');
              register.value = 'Registered!';
@@ -64,6 +64,7 @@ var register = document.getElementById ('register_btn');
         register.value = 'Register';
     }
    }
+        }
  };
 //Make the request
 var username = document.getElementById('username').value;
