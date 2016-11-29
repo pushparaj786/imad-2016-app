@@ -49,9 +49,11 @@ var register = document.getElementById ('register_btn');
                           //Capture the response and store it in a variable
          var username = document.getElementById('username').value;
          var password = document.getElementById('password').value;
-         if (username.trim().length < 4 && password.trim().length < 4 && username!==/^[0-9a-zA-Z]+$/){
+         if (username.trim().length < 4 && password.trim().length <4){
              alert('Please enter minimum 4 alphanumeric text for username and password minimum is 4');
              register.value = 'Register';
+             username = '';
+             password = '';
          } else {
     request.onreadystatechange = function() {
         if(request.readyState===XMLHttpRequest.DONE) {
