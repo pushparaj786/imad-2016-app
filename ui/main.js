@@ -47,15 +47,8 @@ var register = document.getElementById ('register_btn');
                            //create a request object 
     var request = new XMLHttpRequest();
                           //Capture the response and store it in a variable
-         var username = document.getElementById('username').value;
-         var password = document.getElementById('password').value;
-         if (username.trim().length < 4 && password.trim().length <4){
-             alert('Please enter minimum 4 alphanumeric text for username and password minimum is 4');
-             register.value = 'Register';
-             username = '';
-             password = '';
-         } else {
-    request.onreadystatechange = function() {
+        
+            request.onreadystatechange = function() {
         if(request.readyState===XMLHttpRequest.DONE) {
          //check the username for blank and also restrict the password length
         {
@@ -70,12 +63,14 @@ var register = document.getElementById ('register_btn');
         }
  };
 //Make the request
+var username = document.getElementById('username').value;
+var password = document.getElementById('password').value;
 request.open('POST','/create-user', true);
 request.setRequestHeader('Content-Type','application/json');
 request.send(JSON.stringify({username: username, password: password}));
 register.value = 'Registering....';
-  }
-};
+  };
+}
 
 function loadLoggedInUser(username){
  var loginArea = document.getElementById('login_area');
