@@ -42,16 +42,17 @@ request.send(JSON.stringify({username: username, password: password}));
 submit.value = 'Logging in....';
 };
 
+
 var register = document.getElementById ('register_btn');
     register.onclick = function(){
                            //create a request object 
     var request = new XMLHttpRequest();
                           //Capture the response and store it in a variable
         
-            request.onreadystatechange = function() {
+        request.onreadystatechange = function() {
         if(request.readyState===XMLHttpRequest.DONE) {
          //check the username for blank and also restrict the password length
-        {
+        
          if(request.status === 200){
              alert('User created successfully');
              register.value = 'Registered!';
@@ -60,7 +61,6 @@ var register = document.getElementById ('register_btn');
         register.value = 'Register';
     }
    }
-        }
  };
 //Make the request
 var username = document.getElementById('username').value;
