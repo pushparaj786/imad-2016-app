@@ -50,7 +50,7 @@ var register = document.getElementById ('register_btn');
                           //Capture the response and store it in a variable
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
-        if(username.trim().length>3 && password.trim().length>3){
+        if(username.length>3 && password.length>3){
         request.onreadystatechange = function() {
         if(request.readyState===XMLHttpRequest.DONE) {
          //check the username for blank and also restrict the password length
