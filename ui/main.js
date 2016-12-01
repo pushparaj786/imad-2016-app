@@ -48,7 +48,9 @@ var register = document.getElementById ('register_btn');
                            //create a request object 
     var request = new XMLHttpRequest();
                           //Capture the response and store it in a variable
-        
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        if(username.trim().length>3 && password.trim().length>3){
         request.onreadystatechange = function() {
         if(request.readyState===XMLHttpRequest.DONE) {
          //check the username for blank and also restrict the password length
@@ -63,13 +65,16 @@ var register = document.getElementById ('register_btn');
    }
  };
 //Make the request
-var username = document.getElementById('username').value;
-var password = document.getElementById('password').value;
+
 request.open('POST','/create-user', true);
 request.setRequestHeader('Content-Type','application/json');
 request.send(JSON.stringify({username: username, password: password}));
 register.value = 'Registering....';
-  };
+  } 
+  else{
+     alert(' username and password is to be more than 3'); 
+  }
+};
 }
 
 function loadLoggedInUser(username){
