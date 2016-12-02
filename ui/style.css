@@ -59,4 +59,35 @@ body {
 	font-size: 1.5em;
 	font-family: 'Allerta Stencil', sans-serif;
 }
+ul{
+margin:0px;
+padding:0px;
+}
+ul li{
+float: right;
+width:150px;
+height:40px;
+background-color:black;
+font-size:20px;
+line-height:40px;
+text-align: center;
+opacity:0.8;
+border:3px solid#285189;
+}
+ul li a{
+text-decoration: none;
+color: white;
+display:block;
+}
+ul li a:hover
+{
+background-color:orange;
+}
+ul li ul li
+{
+display:none;
+}
+ul li:hover ul li{
+display:block;
+}
 
