@@ -93,6 +93,7 @@ function loadLogin(){
          //Take some action
          if(request.status === 200){
              loadLoggedInUser(this.responseText);
+             loadArticles();
         } else  {
         loadLoginForm();
     }
