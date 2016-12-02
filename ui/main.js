@@ -21,8 +21,7 @@ var submit = document.getElementById ('login_btn');
      if(request.status === 200){
         submit.value = 'Success!';
     } else if (request.status === 403)  {
-        alert('invalid credentials.Try again')
-        submit.value = 'Login';
+       submit.value = 'Login';
     } else if(request.status === 500)  {
         alert('something went wrong on the server');
         submit.value = 'Login';
