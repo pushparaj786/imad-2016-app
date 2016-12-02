@@ -21,7 +21,9 @@ body {
 }
 
 .img-medium {
-    height: 200px;
+border:4px solid;
+border-color:yellow;
+height: 100px;
 }
 .container {
     text-align:justify;
