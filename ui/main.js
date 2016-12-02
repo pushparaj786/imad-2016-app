@@ -15,6 +15,9 @@ var submit = document.getElementById ('login_btn');
             //create a request object 
     var request = new XMLHttpRequest();
             //Capture the response and store it in a variable
+     var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value; 
+    if(username.length>3 && password.length>3){
     request.onreadystatechange = function() {
     if(request.readyState===XMLHttpRequest.DONE){
          //Take some action
@@ -30,16 +33,17 @@ var submit = document.getElementById ('login_btn');
     }
 };
 
-
 //Make the request
-var username = document.getElementById('username').value;
-var password = document.getElementById('password').value;
 console.log('username');
 console.log('password');
 request.open('POST','/login', true);
 request.setRequestHeader('Content-Type','application/json');
 request.send(JSON.stringify({username: username, password: password}));
 submit.value = 'Logging in....';
+}else
+{
+alert(' Please check your username/password'); 
+  }
 };
 
 
@@ -72,7 +76,7 @@ request.send(JSON.stringify({username: username, password: password}));
 register.value = 'Registering....';
   } 
   else{
-     alert(' username and password is to be more than 3'); 
+     alert(' Please use more than 3 starting with letter for username and more than 3 for password'); 
   }
 };
 }
