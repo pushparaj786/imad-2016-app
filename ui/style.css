@@ -82,6 +82,7 @@ ul li a{
 text-decoration: none;
 color: white;
 display:block;
+text-align: center;
 }
 ul li a:hover
 {
