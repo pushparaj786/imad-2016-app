@@ -76,7 +76,9 @@ request.send(JSON.stringify({username: username, password: password}));
 register.value = 'Registering....';
   } 
   else{
-     alert(' Please use minimum 4 letters for username and password'); 
+     alert(' Please use minimum 4 letters for username and password');
+     username='';
+     password='';
   }
 };
 }
