@@ -77,8 +77,7 @@ register.value = 'Registering....';
   } 
   else{
      alert(' Please use minimum 4 letters for username and password');
-     username='';
-     password='';
+    
   }
 };
 }
