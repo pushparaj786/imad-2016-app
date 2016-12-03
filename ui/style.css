@@ -94,5 +94,6 @@ display:none;
 }
 ul li:hover ul li{
 display:block;
+text-align:center;
 }
 
