@@ -90,6 +90,13 @@ app.post('/create-user',function(req,res){
 //username,password
     var username = req.body.username;
     var password = req.body.password;
+    if(username.length>10 ||password.length>10){
+        res.status(400).send('Maximum letters allowed is 10 for username and password');
+    }
+    else if (!/^[A-Za-z0-9_.@]+$)/.test(username)){
+        res.status(500).send("Username can't contain special characters except_.@"); 
+    }
+    else{
     var salt = crypto.randomBytes(128).toString('hex');
     var dbString = hash(password,salt);
     pool.query('INSERT INTO "user"(username,password) VALUES($1,$2)',[username,dbString],function(err,result){
@@ -97,10 +104,11 @@ app.post('/create-user',function(req,res){
             res.status(500).send(err.toString());
         } else {
             res.send('User successfully created:'+ username);
-        } 
-});
-    
-});
+        }
+    });
+    }  
+    });
+
 app.post('/login',function(req,res){
     var username = req.body.username;
     var password = req.body.password;
