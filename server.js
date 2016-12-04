@@ -93,9 +93,6 @@ app.post('/create-user',function(req,res){
     if(username.length>10 ||password.length>10){
         res.status(400).send('Maximum letters allowed is 10 for username and password');
     }
-    else if (!/^[A-Za-z0-9_.@]+$)/.test(username)){
-        res.status(500).send("Username can't contain special characters except_.@"); 
-    }
     else{
     var salt = crypto.randomBytes(128).toString('hex');
     var dbString = hash(password,salt);
