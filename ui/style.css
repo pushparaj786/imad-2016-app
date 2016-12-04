@@ -7,6 +7,8 @@ body {
     border-width:10px;
     border-color:green blue red yellow;
     background-image:url("seaboat.jpg");
+    background-repeat: no-repeat;
+    background-size:1350px 670px;
 }
 
 .center {
